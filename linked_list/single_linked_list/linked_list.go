@@ -39,7 +39,7 @@ func (l *LinkedList) Insert(d interface{}) {
 	l.head.next = temp
 }
 
-// Append - creates a new node at the end of the linked list
+// Append - creates a new node at the end
 func (l *LinkedList) Append(d interface{}) {
 	l.len++
 	n := node{
@@ -59,7 +59,7 @@ func (l *LinkedList) Append(d interface{}) {
 	current.next = &n
 }
 
-// DeleteHead - deletes the first node in the linked list
+// DeleteHead - deletes the first node
 func (l *LinkedList) DeleteHead() error {
 	if l.head == nil {
 		return errors.New("error: can not delete from an empty linked list")
@@ -93,12 +93,12 @@ func (l *LinkedList) Delete(d interface{}) (bool, error) {
 	return false, nil
 }
 
-// Len - returns the amount of nodes in the linked list
+// Len - returns the amount of nodes
 func (l *LinkedList) Len() int {
 	return l.len
 }
 
-// String - prints the Data of each node in the linked list
+// String - prints the Data of each node
 func (l LinkedList) String() string {
 	if l.head == nil {
 		return ""
