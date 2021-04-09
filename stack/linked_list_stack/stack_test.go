@@ -21,6 +21,7 @@ func TestPush(t *testing.T) {
 
 		data, err := s.Peek()
 		assert.Equal(t, i, data)
+		assert.Nil(t, err)
 	}
 }
 
@@ -34,9 +35,9 @@ func TestPopWithError(t *testing.T) {
 
 func TestPopWithNoError(t *testing.T) {
 	s := New()
-	s.Push(1)
-	s.Push(3)
-	s.Push(5)
+	_ = s.Push(1)
+	_ = s.Push(3)
+	_ = s.Push(5)
 	data, err := s.Pop()
 	assert.Nil(t, err)
 	assert.EqualValues(t, 5, data)
@@ -54,7 +55,8 @@ func TestPeekWithError(t *testing.T) {
 
 func TestPeekWithNoError(t *testing.T) {
 	s := New()
-	s.Push(1)
+	err := s.Push(1)
+	assert.Nil(t, err)
 	data, err := s.Peek()
 	assert.Nil(t, err)
 	assert.EqualValues(t, 1, data)
