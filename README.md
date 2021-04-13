@@ -40,3 +40,39 @@ This repo is for learning purposes only. I am referencing and old java book, dat
         - String - prints the Data of each node
     
 
+### Stacks
+
+- What: A Stack is data structure that mimics how you would add and remove a stack of plates in real life. You can only add a new plate on top, which is known as push, or you can remove the top most item, which is called pop. This is why stacks are referred to as a First In, Last Out (FILO) or Last In First Out (LIFO) data structure. Stacks can be implemented with a linked list, fixed size array, or a dynamically sized array.
+
+- Why: Stacks are useful when you need store data and wish to get the most recently added data back in that order.
+
+- implementation: Each stack has the push(to add data), pop(to remove and get), peek(to get without removal), and Empty(returns true if no data in stack).
+
+- Performance of methods for a stacked using a fixed size array
+    - O(1)
+        - New - creates a new fixed stack with the specified capacity
+        - Push - adds data to the stack
+        - Pop - removes and returns the most recently pushed data
+        - Peek - returns the most recently pushed daa
+        - Empty - returns if the stack has no items
+        - Full - returns if the stack has no more space
+        - Len - returns the amount of items in stack
+ 
+- Performance of methods for a stacked using a dynamically size array
+    - O(1)
+        - New - creates a new stack using a slice
+        - Push - adds data to the stack
+        - Pop - removes and returns the most recently pushed data
+        - Peek - returns the most recently pushed data
+        - Empty - returns if the stack has no items
+        - Len - returns the amount of items in stack
+
+- Performance of methods for a stacked using a linked list array
+     - O(1)
+        - New - creates a new stack using a linked list
+        - Push - adds data to the stack and returns node back
+        - Pop - removes and returns the most recently pushed data
+        - Peek - returns the most recently pushed data
+        - Empty - returns if the stack has no nodes
+        - Len - returns the amount of nodes in stack
+
