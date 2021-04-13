@@ -16,9 +16,9 @@ func TestNew(t *testing.T) {
 func TestPush(t *testing.T) {
 	s := New()
 	for i := 0; i < 3; i += 1 {
-		err := s.Push(i)
-		assert.Nil(t, err)
-
+		n := s.Push(i)
+		assert.EqualValues(t, i, n.Data)
+		_, _ = s.Peek()
 		data, err := s.Peek()
 		assert.Equal(t, i, data)
 		assert.Nil(t, err)
@@ -30,7 +30,7 @@ func TestPopWithError(t *testing.T) {
 	item, err := s.Pop()
 	assert.NotNil(t, err)
 	assert.EqualValues(t, errors.New("error: stack is empty, can not pop from stack"), err)
-	assert.Equal(t, node{}, item)
+	assert.Equal(t, nil, item)
 }
 
 func TestPopWithNoError(t *testing.T) {
@@ -50,13 +50,13 @@ func TestPeekWithError(t *testing.T) {
 	peeked, err := s.Peek()
 	assert.NotNil(t, err)
 	assert.EqualValues(t, errors.New("error: stack is empty, can not peak from stack"), err)
-	assert.Equal(t, node{}, peeked)
+	assert.Equal(t, nil, peeked)
 }
 
 func TestPeekWithNoError(t *testing.T) {
 	s := New()
-	err := s.Push(1)
-	assert.Nil(t, err)
+	n := s.Push(1)
+	assert.EqualValues(t, 1, n.Data)
 	data, err := s.Peek()
 	assert.Nil(t, err)
 	assert.EqualValues(t, 1, data)

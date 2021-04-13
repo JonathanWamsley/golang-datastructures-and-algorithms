@@ -17,31 +17,31 @@ func New() *DynamicStack {
 	return &DynamicStack{}
 }
 
-// Push - adds an item to the stack
-func (s *DynamicStack) Push(data interface{}) *Item {
+// Push - adds data to the stack
+func (s *DynamicStack) Push(data interface{}) Item {
 	item := Item{Data: data}
 	s.Items = append(s.Items, item)
-	return &item
+	return item
 }
 
-// Pop - removes and returns the most recently pushed item
-func (s *DynamicStack) Pop() (*Item, error) {
+// Pop - removes and returns the most recently pushed data
+func (s *DynamicStack) Pop() (interface{}, error) {
 	if s.Empty() {
-		return &Item{}, errors.New("error: stack is empty, can not pop from stack")
+		return nil, errors.New("error: stack is empty, can not pop from stack")
 	}
 	lastIndex := len(s.Items) - 1
 	lastItem := s.Items[lastIndex]
 	s.Items = s.Items[:lastIndex]
-	return &lastItem, nil
+	return lastItem.Data, nil
 }
 
-// Peek - returns the most recently pushed Item
-func (s *DynamicStack) Peek() (*Item, error) {
+// Peek - returns the most recently pushed data
+func (s *DynamicStack) Peek() (interface{}, error) {
 	if s.Empty() {
-		return &Item{}, errors.New("error: stack is empty")
+		return nil, errors.New("error: stack is empty")
 	}
 	lastIndex := len(s.Items) - 1
-	return &s.Items[lastIndex], nil
+	return s.Items[lastIndex].Data, nil
 }
 
 // Empty - returns if the stack has no items

@@ -22,26 +22,26 @@ func New() *LinkedListStack {
 	}
 }
 
-// Push - adds data to the stack
-func (s *LinkedListStack) Push(data interface{}) error {
+// Push - adds data to the stack and returns node back
+func (s *LinkedListStack) Push(data interface{}) node {
 	node := node{Data: data}
 	if s.len == 0 {
 		s.head = &node
 		s.len++
-		return nil
+		return node
 	}
 
 	top := s.head
 	s.head = &node
 	s.head.next = top
 	s.len++
-	return nil
+	return node
 }
 
-// Pop - removes and returns the most recently pushed node
+// Pop - removes and returns the most recently pushed data
 func (s *LinkedListStack) Pop() (interface{}, error) {
 	if s.Empty() {
-		return node{}, errors.New("error: stack is empty, can not pop from stack")
+		return nil, errors.New("error: stack is empty, can not pop from stack")
 	}
 	top := s.head
 	s.head = top.next
@@ -52,7 +52,7 @@ func (s *LinkedListStack) Pop() (interface{}, error) {
 // Peek - returns the most recently pushed data
 func (s *LinkedListStack) Peek() (interface{}, error) {
 	if s.Empty() {
-		return node{}, errors.New("error: stack is empty, can not peak from stack")
+		return nil, errors.New("error: stack is empty, can not peak from stack")
 	}
 	return s.head.Data, nil
 }

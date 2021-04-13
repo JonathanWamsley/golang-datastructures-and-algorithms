@@ -26,38 +26,39 @@ func New(capacity int) *FixedStack {
 	}
 }
 
-// Push - adds an element to the stack
-func (s *FixedStack) Push(data interface{}) error {
+// Push - adds data to the stack
+func (s *FixedStack) Push(data interface{}) (Item, error) {
 	if s.Full() {
-		return errors.New("error: stack is full, can not push onto stack")
+		return Item{}, errors.New("error: stack is full, can not push onto stack")
 	}
-	s.Items[s.len] = Item{Data: data}
+	item := Item{Data: data}
+	s.Items[s.len] = item
 	s.len++
-	return nil
+	return item, nil
 }
 
-// Pop - removes and returns the most recently pushed element
-func (s *FixedStack) Pop() (Item, error) {
+// Pop - removes and returns the most recently pushed data
+func (s *FixedStack) Pop() (interface{}, error) {
 	if s.Empty() {
-		return Item{}, errors.New("error: stack is empty, can not pop from stack")
+		return nil, errors.New("error: stack is empty, can not pop from stack")
 	}
 	last := s.len - 1
 	lastItem := s.Items[last]
 	s.Items[last] = Item{}
 	s.len--
-	return lastItem, nil
+	return lastItem.Data, nil
 }
 
-// Peek - returns the most recently pushed element
-func (s *FixedStack) Peek() (Item, error) {
+// Peek - returns the most recently pushed data
+func (s *FixedStack) Peek() (interface{}, error) {
 	if s.Empty() {
-		return Item{}, errors.New("error: stack is empty")
+		return nil, errors.New("error: stack is empty")
 	}
 	lastIndex := s.len - 1
-	return s.Items[lastIndex], nil
+	return s.Items[lastIndex].Data, nil
 }
 
-// Empty - returns if the stack has no elements
+// Empty - returns if the stack has no items
 func (s *FixedStack) Empty() bool {
 	return s.len == 0
 }
@@ -67,7 +68,7 @@ func (s *FixedStack) Full() bool {
 	return s.len == s.capacity
 }
 
-// Len - returns the amount of elements in stack
+// Len - returns the amount of items in stack
 func (s *FixedStack) Len() int {
 	return s.len
 }
