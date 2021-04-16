@@ -76,3 +76,36 @@ This repo is for learning purposes only. I am referencing and old java book, dat
         - Empty - returns if the stack has no nodes
         - Len - returns the amount of nodes in stack
 
+### Queues
+
+- What: A queue is a data structure that mimics standing in line to get some food. New people arrive at the end of the line, which is known as enqueue. People at the front of the line can get served and are removed, which is known as dequeue. This is why queues are known as First In First Out(FIFO) or Last In Last Out (LILO). Queues can be implemented by using a double ended linked list, circular fixed array, or a circular dynamic array.
+
+- Why: Queues are used when ever you have tasks or jobs that need to be done in a certain order or schedule.
+
+- Implementation: Each queue has Enqueue(to add data), Dequeue(to remove data), and Front(to view the data the would be removed) properties
+
+- Performance of methods for a queue using a double ended linked list
+    - O(1)
+        - Enqueue - adds a node to the end
+        - Dequeue - returns and remove the first node
+        - Front - returns the first node
+
+- Performance of methods for a queue using a circular fixed array 
+    - O(1)
+        - Enqueue - adds item to end of queue
+        - Dequeue - removes front item in queue
+        - Front - returns the first element
+        - Full - returns true if queue is at max capacity
+
+- Performance of methods for a queue using a circular fixed array 
+    - O(1)
+        - Enqueue - adds item to end of queue
+        - Dequeue - removes front item in queue
+        - Front - returns the first element
+        - Full - returns true if queue is at max capacity
+
+- Performance of methods for a queue using a circular dynamic array
+    - O(1)
+        - Enqueue - adds item to end of queue
+        - Dequeue - removes front item in queue
+        - Front - returns the first element
