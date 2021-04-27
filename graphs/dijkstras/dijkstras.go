@@ -24,8 +24,22 @@ func NewGraph() *AdjacencyList {
 	return &AdjacencyList{}
 }
 
+// IsVertex - returns if vertex exists
+func (al AdjacencyList) IsVertex(to string) bool {
+	_, ok := al[to]
+	return ok
+}
+
+// AddVertex - creates a vertex with no edges
+func (al AdjacencyList) AddVertex(to string) {
+	al[to] = []*Edge{}
+}
+
 // AddEdge - creates a new edge directed edge as an int
 func (al AdjacencyList) AddEdge(from, to string, edge int) {
+	if !al.IsVertex(to) {
+		al.AddVertex(to)
+	}
 	e := Edge{
 		vertex: to,
 		weight: edge,
