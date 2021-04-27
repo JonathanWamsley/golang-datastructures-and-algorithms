@@ -32,7 +32,7 @@ func TestDijkstras(t *testing.T) {
 	g.AddEdge("Nurnberg", "Wurzburg", 103)
 
 	g.AddEdge("Kassel", "Munchen", 502)
-	g.AddEdge("Munchen", "Kassel", 502)
+	// g.AddEdge("Munchen", "Kassel", 502)
 
 	g.AddEdge("Karlsruhue", "Augsburg", 250)
 	g.AddEdge("Augsburg", "Karlsruhue", 250)
@@ -41,10 +41,10 @@ func TestDijkstras(t *testing.T) {
 	g.AddEdge("Stuttgart", "Nurnberg", 183)
 
 	g.AddEdge("Nurnberg", "Munchen", 167)
-	g.AddEdge("Munchen", "Nurnberg", 167)
+	// g.AddEdge("Munchen", "Nurnberg", 167)
 
 	g.AddEdge("Augsburg", "Munchen", 84)
-	g.AddEdge("Munchen", "Augsburg", 84)
+	// g.AddEdge("Munchen", "Augsburg", 84)
 
 	path, err := Dijkstras("Frankfurt", "Munchen", g)
 	assert.Nil(t, err)
