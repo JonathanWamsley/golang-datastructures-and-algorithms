@@ -7,7 +7,7 @@ import (
 )
 
 // reference https://www.baeldung.com/cs/graph-connected-components
-func TestFindComponents(t *testing.T) {
+func TestThisShit(t *testing.T) {
 	g := New()
 	// 3 connected components
 	g.AddEdge("v1", "v2", 1)
